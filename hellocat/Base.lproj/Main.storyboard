@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,106 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="hellocat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mud-a8-uha">
+                                <rect key="frame" x="76.666666666666686" y="200" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2OX-pQ-Rq9"/>
+                                    <constraint firstAttribute="height" constant="240" id="h0O-vP-f2a"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="v0o-hh-1CC"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xGv-4T-F6E" appends="YES" id="Iqq-nm-DLB"/>
+                                    <outletCollection property="gestureRecognizers" destination="2R4-5I-ewc" appends="YES" id="OoU-Hx-uAO"/>
+                                </connections>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lWa-EQ-Ky9">
+                                <rect key="frame" x="15" y="89" width="363" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="colorSegmentChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="HeL-KR-OcF"/>
+                                </connections>
+                            </segmentedControl>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1NX-D0-4Pu">
+                                <rect key="frame" x="138.66666666666666" y="465" width="116" height="26"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ohf-KH-lLB">
+                                <rect key="frame" x="45" y="571.33333333333337" width="51" height="34.333333333333371"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.left" catalog="system"/>
+                                <connections>
+                                    <action selector="prePage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MuA-V4-nkb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzs-JR-Zq7">
+                                <rect key="frame" x="297" y="571.33333333333337" width="51" height="34.333333333333371"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.right" catalog="system"/>
+                                <connections>
+                                    <action selector="nextPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOh-LV-xqc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6o-jv-BI4">
+                                <rect key="frame" x="169.33333333333334" y="521" width="54.666666666666657" height="25.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.91591566801071167" green="0.88616625605750809" blue="0.80307630627686688" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="mud-a8-uha" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Pn-br-gjY"/>
+                            <constraint firstItem="mud-a8-uha" firstAttribute="top" secondItem="lWa-EQ-Ky9" secondAttribute="bottom" constant="80" id="F5o-rx-Ljq"/>
+                            <constraint firstItem="1NX-D0-4Pu" firstAttribute="top" secondItem="mud-a8-uha" secondAttribute="bottom" constant="25" id="Foc-ad-dQv"/>
+                            <constraint firstItem="ohf-KH-lLB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="Qht-tc-veU"/>
+                            <constraint firstItem="lWa-EQ-Ky9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="aIr-Ws-B5o"/>
+                            <constraint firstItem="Y6o-jv-BI4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="j0F-6h-gY1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lWa-EQ-Ky9" secondAttribute="trailing" constant="15" id="nOy-PB-6Kt"/>
+                            <constraint firstItem="Y6o-jv-BI4" firstAttribute="top" secondItem="1NX-D0-4Pu" secondAttribute="bottom" constant="30" id="rHe-v6-AjV"/>
+                            <constraint firstItem="Tzs-JR-Zq7" firstAttribute="top" secondItem="Y6o-jv-BI4" secondAttribute="bottom" constant="25" id="ra9-r6-TG1"/>
+                            <constraint firstItem="ohf-KH-lLB" firstAttribute="top" secondItem="Y6o-jv-BI4" secondAttribute="bottom" constant="25" id="uYY-iz-ADc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tzs-JR-Zq7" secondAttribute="trailing" constant="45" id="wu0-zl-wga"/>
+                            <constraint firstItem="1NX-D0-4Pu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xmj-t5-oCF"/>
+                            <constraint firstItem="lWa-EQ-Ky9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="zaV-gU-SXL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="catColorSegment" destination="lWa-EQ-Ky9" id="RR9-6S-2pE"/>
+                        <outlet property="catImage" destination="mud-a8-uha" id="dfM-6s-wZi"/>
+                        <outlet property="catName" destination="Y6o-jv-BI4" id="NdP-SL-fV6"/>
+                        <outlet property="catPageControl" destination="1NX-D0-4Pu" id="w93-aj-R88"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="xGv-4T-F6E">
+                    <connections>
+                        <action selector="prePage:" destination="BYZ-38-t0r" id="AFQ-gk-1cJ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="2R4-5I-ewc">
+                    <connections>
+                        <action selector="nextPage:" destination="BYZ-38-t0r" id="H4W-La-zBD"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="104.58015267175573" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrowshape.left" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.right" catalog="system" width="128" height="104"/>
+        <namedColor name="AccentColor">
+            <color red="0.63499999046325684" green="0.51800000667572021" blue="0.36900001764297485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
